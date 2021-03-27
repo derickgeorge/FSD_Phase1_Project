@@ -113,8 +113,9 @@ public class filesystem {
 		File folder = new File("C:\\Users\\Derick_George\\OneDrive - Dell Technologies\\Desktop\\File_Directery");
 		String[] File_list = folder.list();
 		Arrays.sort(File_list);
+
 		if (File_name.equals("")) {
-			System.out.println("The Lists in the Directory in Ascending Order ");
+			System.out.println("The List of files  in the Directory  ");
 
 			for (int i = 0; i < File_list.length; i++) {
 				System.out.println(File_list[i]);
@@ -141,14 +142,14 @@ public class filesystem {
 	public static void main(String arg[]) {
 		int n = 0;
 		filesystem test01 = new filesystem();
-		System.out.println("Application Name  : LockedMe.com");
-		System.out.println(" Developed By : Derick George");
+		System.out.print("ApplicationName:LockedMe.com");
+		System.out.println("\tDeveloped By:Derick George\n");
 		do {
 			System.out.println("1. Add a New File ");
 			System.out.println("2. Search an existing file");
 			System.out.println("3. Delete a Specific File ");
-			System.out.println("4. Quit ");
-			System.out.println("5. Show all files in directory  ");
+			System.out.println("4. Show all files in directory ");
+			System.out.println("5. Quit \n ");
 
 			System.out.println("Please enter any Option ");
 			Scanner scr = new Scanner(System.in);
@@ -161,7 +162,7 @@ public class filesystem {
 				boolean add_file = test01.addnewfile(File_Name2);
 				Boolean flag = test01.user_exit();
 				if (!flag)
-					n = 4;
+					n = 5;
 				break;
 			case 2:
 				System.out.println("Enter File Name ");
@@ -174,7 +175,7 @@ public class filesystem {
 				String test = test01.get_file(file_Name);
 				Boolean flag1 = test01.user_exit();
 				if (!flag1)
-					n = 4;
+					n = 5;
 				break;
 			case 3:
 				System.out.println("Enter File Name to delete  ");
@@ -183,24 +184,26 @@ public class filesystem {
 				boolean test3 = test01.delete_existing_file(File_Name3);
 				Boolean flag2 = test01.user_exit();
 				if (!flag2)
-					n = 4;
+					n = 5;
 				break;
 			case 4:
-
-				break;
-			case 5:
 				String test1 = test01.get_file("");
 				Boolean flag3 = test01.user_exit();
 				if (!flag3)
-					n = 4;
+					n = 5;
 				break;
+
+			case 5:
+
+				break;
+
 			default:
 				System.out.println("Wrong Choice Select any Below Choice ");
 				break;
 
 			}
-		} while (n != 4);
-		if (n == 4)
+		} while (n != 5);
+		if (n == 5)
 			System.out.println("Thank you for using : LockedMe.com ");
 	}
 }
