@@ -46,34 +46,6 @@ public class filesystem {
 
 	}
 
-	public Boolean addnewfile(String File_name) {
-
-		String Is_File_exist = get_file(File_name);
-		if (Is_File_exist.equals("File Not  Found")) {
-
-			File myfile = new File("C:\\Users\\Derick_George\\OneDrive - Dell Technologies\\Desktop\\File_Directery",
-					File_name + ".txt");
-			try {
-				boolean create_new_file = myfile.createNewFile();
-				if (create_new_file == true) {
-
-					System.out.println("Added new File ");
-					return true;
-				}
-
-			} catch (Exception e) {
-				System.out.println("Unable to add file");
-			}
-
-			return true;
-
-		} else {
-
-			System.out.println("File already Exists ");
-			return false;
-		}
-	}
-
 	public String stripExtension(String str) {
 		if (str == null)
 			return null;
