@@ -1,7 +1,6 @@
 package com.fsd.filesystem;
 
 import java.io.File;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class filesystem {
@@ -108,19 +107,61 @@ public class filesystem {
 		return -1;
 	}
 
+	public static int stringCompare(String str1, String str2) {
+
+		int l1 = str1.length();
+		int l2 = str2.length();
+		int lmin = Math.min(l1, l2);
+
+		for (int i = 0; i < lmin; i++) {
+			int str1_ch = (int) str1.charAt(i);
+			int str2_ch = (int) str2.charAt(i);
+
+			if (str1_ch != str2_ch) {
+				return str1_ch - str2_ch;
+			}
+		}
+
+		if (l1 != l2) {
+			return l1 - l2;
+		}
+
+		else {
+			return 0;
+		}
+	}
+
+	public void Sort_Ascending(String[] File_list) {
+		String temp;
+		for (int j = 0; j < File_list.length; j++) {
+			for (int i = j + 1; i < File_list.length; i++) {
+				// comparing adjacent strings
+				if (File_list[i].compareTo(File_list[j]) > 0) {
+					temp = File_list[j];
+					File_list[j] = File_list[i];
+					File_list[i] = temp;
+				}
+			}
+		}
+		for (int i = File_list.length - 1; i > 0; i--)
+			System.out.println(File_list[i]);
+
+	}
+
 	public String get_file(String File_name) {
 
 		File folder = new File("C:\\Users\\Derick_George\\OneDrive - Dell Technologies\\Desktop\\File_Directery");
 		String[] File_list = folder.list();
-		Arrays.sort(File_list);
 
 		if (File_name.equals("")) {
 			System.out.println("The List of files  in the Directory  ");
 
-			for (int i = 0; i < File_list.length; i++) {
-				System.out.println(File_list[i]);
+			// for (int i = 0; i < File_list.length; i++) {
+			// System.out.println(File_list[i]);
 
-			}
+			// }
+
+			Sort_Ascending(File_list);
 
 			return File_name;
 		} else {
